@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">COEN390_AS1</string>
+    <string name="settings_txt">SETTINGS</string>
+    <string name="showmycounts_txt">SHOW MY COUNTS</string>
+    <string name="placeholder_txt">PLACEHOLDER</string>
+    <string name="settingswelcome">WELCOME TO SETTINGS</string>
+    <string name="datawelcome">WELCOME TO DATA</string>
 </resources>
