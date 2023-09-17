@@ -1,22 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="100dp"
-    android:layout_marginTop="100dp"
+    android:layout_marginStart="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginHorizontal="5dp"
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
+    <!-- Modify this whole part -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/settingsactivity"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- Until here -->
+
     <TextView
-        android:id="@+id/settingswelcome"
-        android:layout_gravity="center"
-        android:layout_marginTop="75dp"
-        android:layout_marginBottom="75dp"
-        android:layout_width="wrap_content"
+        android:id="@+id/counter1name"
+        android:layout_gravity="start"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settingswelcome"
+        android:layout_marginBottom="5dp"
+        android:text="@string/counter1name"
         />
+
+    <EditText
+        android:id="@+id/counter1edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:hint="@string/writenamehere"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/counter2name"
+        android:layout_gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/counter2name"
+        />
+
+    <EditText
+        android:id="@+id/counter2edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:hint="@string/writenamehere"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/counter3name"
+        android:layout_gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/counter3name"
+        />
+
+    <EditText
+        android:id="@+id/counter3edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:hint="@string/writenamehere"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/maxcount"
+        android:layout_gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/maxcount_txt"
+        />
+
+    <EditText
+        android:id="@+id/maxcountedittxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:hint="@string/writemaxcounthere"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#8D6E63"
+        tools:ignore="Autofill" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_gravity="center"
+        android:text="@string/save_txt"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

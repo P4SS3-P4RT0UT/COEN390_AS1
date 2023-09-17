@@ -3,6 +3,13 @@
     <string name="settings_txt">SETTINGS</string>
     <string name="showmycounts_txt">SHOW MY COUNTS</string>
     <string name="placeholder_txt">PLACEHOLDER</string>
-    <string name="settingswelcome">WELCOME TO SETTINGS</string>
     <string name="datawelcome">WELCOME TO DATA</string>
+    <string name="counter1name">Counter 1 Name</string>
+    <string name="counter2name">Counter 2 Name</string>
+    <string name="counter3name">Counter 3 Name</string>
+    <string name="writenamehere">Name goes here</string>
+    <string name="save_txt">Save</string>
+    <string name="maxcount_txt">Maximum counts</string>
+    <string name="writemaxcounthere">Max count goes here</string>
+    <string name="settingsactivity">Settings Activity</string>
 </resources>
