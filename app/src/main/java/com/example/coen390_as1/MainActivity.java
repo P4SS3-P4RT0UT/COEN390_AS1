@@ -1,3 +1,4 @@
+
 package com.example.coen390_as1;
 
 
@@ -5,28 +6,80 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    //declare buttons
-    private Button settings_btn;
+    protected final static String TAG = "MainActivity";
+
+    protected Button settingsBtn;
+    protected Button counter1Btn;
+    protected Button counter2Btn;
+    protected Button counter3Btn;
+    protected Button showMyCountsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // initialize buttons
-        settings_btn = findViewById(R.id.settings_btn);
-        settings_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(settings);
-            }
-        });
+        Log.d(TAG, "OnCreate() event");
+        
+        setupUI();
     }
 
+    protected void setupUI() {
+
+        settingsBtn = (Button)findViewById(R.id.settings_btn);
+        settingsBtn.setOnClickListener(onClickSettingsBtn);
+
+        settingsBtn = (Button)findViewById(R.id.counter1_btn);
+        counter1Btn.setOnClickListener(onClickCounter1Btn);
+
+        settingsBtn = (Button)findViewById(R.id.counter2_btn);
+        counter2Btn.setOnClickListener(onClickCounter2Btn);
+
+        settingsBtn = (Button)findViewById(R.id.counter3_btn);
+        counter3Btn.setOnClickListener(onClickCounter3Btn);
+
+        settingsBtn = (Button)findViewById(R.id.showmycounts_btn);
+        showMyCountsBtn.setOnClickListener(onClickShowMyCountsBtn);
+    }
+
+    private View.OnClickListener onClickSettingsBtn = new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(settings);
+        }
+    };
+
+    private View.OnClickListener onClickCounter1Btn = new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+
+        }
+    };
+
+    private View.OnClickListener onClickCounter2Btn = new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+
+        }
+    };
+
+    private View.OnClickListener onClickCounter3Btn = new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+
+        }
+    };
+
+    private View.OnClickListener onClickShowMyCountsBtn = new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+
+        }
+    };
 }
