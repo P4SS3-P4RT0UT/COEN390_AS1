@@ -1,7 +1,6 @@
 
 package com.example.coen390_as1;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,26 +10,32 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    // Define TAG for debugging purposes
     protected final static String TAG = "MainActivity";
-
-    protected Button settingsBtn;
-    protected Button counter1Btn;
-    protected Button counter2Btn;
-    protected Button counter3Btn;
-    protected Button showMyCountsBtn;
+    // Declare layout buttons
+    protected Button settingsBtn = null;
+    protected Button counter1Btn = null;
+    protected Button counter2Btn = null;
+    protected Button counter3Btn = null;
+    protected Button showMyCountsBtn = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //
         Log.d(TAG, "OnCreate() event");
         
         setupUI();
     }
 
-    protected void setupUI() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 
+    protected void setupUI() {
+        //
         settingsBtn = (Button)findViewById(R.id.settings_btn);
         settingsBtn.setOnClickListener(onClickSettingsBtn);
 
@@ -50,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener onClickSettingsBtn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(settings);
+            goToSettings();
         }
     };
 
@@ -82,4 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    void goToSettings() {
+        Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
+        startActivity(settings);
+    }
 }
