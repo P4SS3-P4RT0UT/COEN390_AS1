@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/counter1name"
+        android:text="@string/counter1nametxt"
         />
 
     <EditText
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/counter2name"
+        android:text="@string/counter2nametxt"
         />
 
     <EditText
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/counter3name"
+        android:text="@string/counter3nametxt"
         />
 
     <EditText
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:hint="@string/writemaxcounthere"
-        android:inputType="text"
+        android:inputType="number"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
         tools:ignore="Autofill" />

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="100dp"
-    android:layout_marginTop="100dp"
+    android:layout_marginBottom="50dp"
+    android:layout_marginTop="50dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -49,7 +49,7 @@
         />
     <Button
         android:id="@+id/showmycounts_btn"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:text="@string/showmycounts_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
