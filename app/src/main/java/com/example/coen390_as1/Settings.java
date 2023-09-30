@@ -2,10 +2,10 @@ package com.example.coen390_as1;
 
 public class Settings {
 
-    protected String Counter1Name;
-    protected String Counter2Name;
-    protected String Counter3Name;
-    protected int maxCounts;
+    private String Counter1Name;
+    private String Counter2Name;
+    private String Counter3Name;
+    private int maxCounts;
 
     public Settings(String counter1Name, String counter2Name, String counter3Name, int maxCounts) {
         Counter1Name = counter1Name;

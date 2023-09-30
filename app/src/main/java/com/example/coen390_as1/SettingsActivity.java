@@ -36,6 +36,15 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        counter1Name.setHint(sharedPreferencesHelper.getSettings().getCounter1Name());
+        counter2Name.setHint(sharedPreferencesHelper.getSettings().getCounter2Name());
+        counter3Name.setHint(sharedPreferencesHelper.getSettings().getCounter3Name());
+        maxCounts.setHint(String.valueOf(sharedPreferencesHelper.getSettings().getMaxCounts()));
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return super.onCreateOptionsMenu(menu);

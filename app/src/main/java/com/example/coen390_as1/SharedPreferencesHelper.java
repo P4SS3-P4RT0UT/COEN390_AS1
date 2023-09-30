@@ -16,10 +16,10 @@ public class SharedPreferencesHelper {
 
     public void saveSettings(Settings settings) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("counter1Name", settings.Counter1Name);
-        editor.putString("counter2Name", settings.Counter2Name);
-        editor.putString("counter3Name", settings.Counter3Name);
-        editor.putInt("maxCounts", settings.maxCounts);
+        editor.putString("counter1Name", settings.getCounter1Name());
+        editor.putString("counter2Name", settings.getCounter2Name());
+        editor.putString("counter3Name", settings.getCounter3Name());
+        editor.putInt("maxCounts", settings.getMaxCounts());
         editor.commit();
     }
 
