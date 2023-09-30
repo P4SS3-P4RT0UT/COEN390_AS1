@@ -14,4 +14,6 @@
     <string name="save_txt">Save</string>
     <string name="counter1name">counter1Name</string>
     <string name="maxcount">maxCount</string>
+    <string name="action_edit">Edit</string>
+    <string name="settings_activity">Settings Activity</string>
 </resources>
