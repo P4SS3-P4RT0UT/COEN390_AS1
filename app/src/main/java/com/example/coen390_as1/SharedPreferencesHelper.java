@@ -23,6 +23,15 @@ public class SharedPreferencesHelper {
         editor.commit();
     }
 
+    public void resetSettings() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("counter1Name");
+        editor.remove("counter2Name");
+        editor.remove("counter3name");
+        editor.remove("maxCounts");
+        editor.commit();
+    }
+
     public Settings getSettings() {
         String counter1Name = sharedPreferences.getString("counter1Name", null);
         String counter2Name = sharedPreferences.getString("counter2Name", null);
