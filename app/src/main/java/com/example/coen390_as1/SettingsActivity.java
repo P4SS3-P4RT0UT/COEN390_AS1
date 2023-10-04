@@ -33,15 +33,19 @@ public class SettingsActivity extends AppCompatActivity {
         Log.d(TAG, "OnCreate() event");
         setupUI();
         sharedPreferencesHelper = new SharedPreferencesHelper(SettingsActivity.this);
+        disableEditMode();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(sharedPreferencesHelper.uninitializedSettings()) showDefaultHints();
+        else showCurrentHints();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        counter1Name.setHint(sharedPreferencesHelper.getSettings().getCounter1Name());
-        counter2Name.setHint(sharedPreferencesHelper.getSettings().getCounter2Name());
-        counter3Name.setHint(sharedPreferencesHelper.getSettings().getCounter3Name());
-        maxCounts.setHint(String.valueOf(sharedPreferencesHelper.getSettings().getMaxCounts()));
     }
 
     @Override
@@ -53,10 +57,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.action_edit) {
-            counter1Name.setEnabled(true);
-            counter2Name.setEnabled(true);
-            counter3Name.setEnabled(true);
-            maxCounts.setEnabled(true);
+            enableEditMode();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -71,11 +72,6 @@ public class SettingsActivity extends AppCompatActivity {
         counter2Name = findViewById(R.id.counter2edittext);
         counter3Name = findViewById(R.id.counter3edittext);
         maxCounts = findViewById(R.id.maxcountedittxt);
-
-        counter1Name.setEnabled(false);
-        counter2Name.setEnabled(false);
-        counter3Name.setEnabled(false);
-        maxCounts.setEnabled(false);
 
         saveBtn = findViewById(R.id.save_btn);
         saveBtn.setOnClickListener(onClickSaveBtn);
@@ -96,5 +92,44 @@ public class SettingsActivity extends AppCompatActivity {
     void goToMain() {
         Intent main = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(main);
+    }
+
+    /*
+    Function to show default hints in text fields
+     */
+    void showDefaultHints() {
+        counter1Name.setHint(getString(R.string.writenamehere));
+        counter2Name.setHint(getString(R.string.writenamehere));
+        counter3Name.setHint(getString(R.string.writenamehere));
+        maxCounts.setHint(getString(R.string.writemaxcounthere));
+    }
+
+    /*
+    Function to show user defined preferences as hint in text fields
+     */
+    void showCurrentHints() {
+        counter1Name.setHint(sharedPreferencesHelper.getSettings().getCounter1Name());
+        counter2Name.setHint(sharedPreferencesHelper.getSettings().getCounter2Name());
+        counter3Name.setHint(sharedPreferencesHelper.getSettings().getCounter3Name());
+        maxCounts.setHint(String.valueOf(sharedPreferencesHelper.getSettings().getMaxCounts()));
+    }
+
+    /*
+    Functions to enable and disable editing
+    Default mode is display mode
+     */
+    void enableEditMode() {
+        counter1Name.setEnabled(true);
+        counter2Name.setEnabled(true);
+        counter3Name.setEnabled(true);
+        maxCounts.setEnabled(true);
+        saveBtn.setVisibility(View.VISIBLE);
+    }
+    void disableEditMode() {
+        counter1Name.setEnabled(false);
+        counter2Name.setEnabled(false);
+        counter3Name.setEnabled(false);
+        maxCounts.setEnabled(false);
+        saveBtn.setVisibility(View.INVISIBLE);
     }
 }

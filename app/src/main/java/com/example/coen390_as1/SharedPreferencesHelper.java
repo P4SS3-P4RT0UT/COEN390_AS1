@@ -23,11 +23,29 @@ public class SharedPreferencesHelper {
         editor.commit();
     }
 
+    public void resetSettings() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
+
     public Settings getSettings() {
         String counter1Name = sharedPreferences.getString("counter1Name", null);
         String counter2Name = sharedPreferences.getString("counter2Name", null);
         String counter3Name = sharedPreferences.getString("counter3Name", null);
         int maxCounts = sharedPreferences.getInt("maxCounts", -1);
         return new Settings(counter1Name, counter2Name, counter3Name, maxCounts);
+    }
+
+    /*
+    Indicates whether settings have been initialized
+     */
+    public boolean uninitializedSettings(){
+        Settings currentSettings = getSettings();
+        if (currentSettings.getCounter1Name() == null ||
+                currentSettings.getCounter2Name() == null ||
+                currentSettings.getCounter3Name() == null ||
+                currentSettings.getMaxCounts() == -1) return true;
+        else return false;
     }
 }
