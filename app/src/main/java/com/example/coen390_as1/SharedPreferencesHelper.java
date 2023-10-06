@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 
 public class SharedPreferencesHelper {
 
-    protected final static String TAG = "SharedPreferencesHelpers";
+    protected final static String TAG = "SharedPreferencesHelper";
 
-    private SharedPreferences sharedPreferences;
+    private static SharedPreferences sharedPreferences;
 
     public SharedPreferencesHelper(Context context) {
         sharedPreferences = context.getSharedPreferences("Settings",

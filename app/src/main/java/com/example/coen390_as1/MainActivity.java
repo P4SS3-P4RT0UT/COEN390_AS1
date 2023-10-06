@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "OnCreate() event");
         setupUI();
         sharedPreferencesHelper = new SharedPreferencesHelper(MainActivity.this);
-
     }
 
     @Override

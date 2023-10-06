@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -39,7 +40,10 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(sharedPreferencesHelper.uninitializedSettings()) showDefaultHints();
+        if(sharedPreferencesHelper.uninitializedSettings()) {
+            showDefaultHints();
+            enableEditMode();
+        }
         else showCurrentHints();
     }
 
@@ -80,24 +84,38 @@ public class SettingsActivity extends AppCompatActivity {
     private final View.OnClickListener onClickSaveBtn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            String counter1 = counter1Name.getText().toString();
-            String counter2 = counter2Name.getText().toString();
-            String counter3 = counter3Name.getText().toString();
-            int max = Integer.parseInt(maxCounts.getText().toString());
-            sharedPreferencesHelper.saveSettings(new Settings(counter1, counter2, counter3, max));
-            goToMain();
+                if(validUserInput()) {
+                    updateSettings();
+                    goToMain();
+                } else {
+                    showToast();
+                }
         }
     };
 
-    void goToMain() {
+    /*
+    Method to go back to main activity
+    */
+    public void goToMain() {
         Intent main = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(main);
     }
 
     /*
-    Function to show default hints in text fields
+    Method to update settings
      */
-    void showDefaultHints() {
+    public void updateSettings() {
+        String counter1 = counter1Name.getText().toString();
+        String counter2 = counter2Name.getText().toString();
+        String counter3 = counter3Name.getText().toString();
+        int max = Integer.parseInt(maxCounts.getText().toString());
+        sharedPreferencesHelper.saveSettings(new Settings(counter1, counter2, counter3, max));
+    }
+
+    /*
+    Method to show default hints in text fields
+     */
+    public void showDefaultHints() {
         counter1Name.setHint(getString(R.string.writenamehere));
         counter2Name.setHint(getString(R.string.writenamehere));
         counter3Name.setHint(getString(R.string.writenamehere));
@@ -105,9 +123,9 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     /*
-    Function to show user defined preferences as hint in text fields
+    Method to show user defined preferences as hint in text fields
      */
-    void showCurrentHints() {
+    public void showCurrentHints() {
         counter1Name.setHint(sharedPreferencesHelper.getSettings().getCounter1Name());
         counter2Name.setHint(sharedPreferencesHelper.getSettings().getCounter2Name());
         counter3Name.setHint(sharedPreferencesHelper.getSettings().getCounter3Name());
@@ -115,21 +133,42 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     /*
-    Functions to enable and disable editing
+    Methods to enable and disable editing
     Default mode is display mode
      */
-    void enableEditMode() {
+    public void enableEditMode() {
         counter1Name.setEnabled(true);
         counter2Name.setEnabled(true);
         counter3Name.setEnabled(true);
         maxCounts.setEnabled(true);
         saveBtn.setVisibility(View.VISIBLE);
     }
-    void disableEditMode() {
+    public void disableEditMode() {
         counter1Name.setEnabled(false);
         counter2Name.setEnabled(false);
         counter3Name.setEnabled(false);
         maxCounts.setEnabled(false);
         saveBtn.setVisibility(View.INVISIBLE);
+    }
+
+    /*
+    Methods to check whether all text fields have been filled
+     */
+    public boolean validUserInput() {
+        return counter1Name.getText().length() != 0 &&
+                counter2Name.getText().length() != 0 &&
+                counter3Name.getText().length() != 0 &&
+                maxCounts.getText().length() != 0;
+    }
+
+    /*
+    Method to show toast message
+    */
+    public void showToast() {
+        // Toast message
+        String message = "You must fill all text fields. Please try again";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(SettingsActivity.this, message, duration);
+        toast.show();
     }
 }

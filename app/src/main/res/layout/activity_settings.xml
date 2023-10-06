@@ -27,6 +27,8 @@
         android:layout_gravity="start"
         android:hint="@string/writenamehere"
         android:inputType="text"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:maxLength="20"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
         tools:ignore="Autofill" />
@@ -47,6 +49,8 @@
         android:layout_gravity="start"
         android:hint="@string/writenamehere"
         android:inputType="text"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:maxLength="20"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
         tools:ignore="Autofill" />
@@ -67,6 +71,8 @@
         android:layout_gravity="start"
         android:hint="@string/writenamehere"
         android:inputType="text"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:maxLength="20"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
         tools:ignore="Autofill" />
