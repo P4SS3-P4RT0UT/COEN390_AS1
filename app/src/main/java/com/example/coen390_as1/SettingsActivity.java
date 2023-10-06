@@ -104,7 +104,7 @@ public class SettingsActivity extends AppCompatActivity {
         public void onClick(View v){
                 if(validUserInput()) {
                     updateSettings();
-                    goToMain();
+                    disableEditMode();
                 } else {
                     showToast();
                 }

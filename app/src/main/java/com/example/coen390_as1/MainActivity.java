@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     protected static int counter2 = 0;
     protected static int counter3 = 0;
 
+    // Array of events
+    String events[];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
