@@ -5,8 +5,10 @@ import android.content.SharedPreferences;
 
 public class SharedPreferencesHelper {
 
-    protected final static String TAG = "SharedPreferencesHelper";
+    // For debugging
+    private final static String TAG = "SharedPreferencesHelper";
 
+    // To manage settings
     private static SharedPreferences sharedPreferences;
 
     public SharedPreferencesHelper(Context context) {
@@ -14,6 +16,9 @@ public class SharedPreferencesHelper {
                 Context.MODE_PRIVATE );
     }
 
+    /*
+    Method to save settings
+    */
     public void saveSettings(Settings settings) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("counter1Name", settings.getCounter1Name());
@@ -23,12 +28,18 @@ public class SharedPreferencesHelper {
         editor.commit();
     }
 
+    /*
+    Method to reset all settings
+    */
     public void resetSettings() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.commit();
     }
 
+    /*
+    Method to get settings
+    */
     public Settings getSettings() {
         String counter1Name = sharedPreferences.getString("counter1Name", null);
         String counter2Name = sharedPreferences.getString("counter2Name", null);
@@ -38,14 +49,13 @@ public class SharedPreferencesHelper {
     }
 
     /*
-    Indicates whether settings have been initialized
+    Method to indicate whether settings have been initialized
      */
     public boolean uninitializedSettings(){
         Settings currentSettings = getSettings();
-        if (currentSettings.getCounter1Name() == null ||
+        return currentSettings.getCounter1Name() == null ||
                 currentSettings.getCounter2Name() == null ||
                 currentSettings.getCounter3Name() == null ||
-                currentSettings.getMaxCounts() == -1) return true;
-        else return false;
+                currentSettings.getMaxCounts() == -1;
     }
 }

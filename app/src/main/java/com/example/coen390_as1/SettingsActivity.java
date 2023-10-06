@@ -16,30 +16,38 @@ import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    protected final static String TAG = "SettingsActivity";
+    // For debugging
+    private final static String TAG = "SettingsActivity";
 
-    protected SharedPreferencesHelper sharedPreferencesHelper;
+    // To manage settings
+    private SharedPreferencesHelper sharedPreferencesHelper;
 
-    protected Toolbar toolbar;
-    protected EditText counter1Name;
-    protected EditText counter2Name;
-    protected EditText counter3Name;
-    protected EditText maxCounts;
-    protected Button saveBtn;
+    // Layout elements
+    private Toolbar toolbar;
+    private EditText counter1Name;
+    private EditText counter2Name;
+    private EditText counter3Name;
+    private EditText maxCounts;
+    private Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Log.d(TAG, "OnCreate() event");
-        setupUI();
+        // Setup layout elements
+        setupToolbar();
+        setupTextFields();
+        setupSaveBtn();
+        // Instantiate helper
         sharedPreferencesHelper = new SharedPreferencesHelper(SettingsActivity.this);
+        // Edit mode disabled by default
         disableEditMode();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        // If settings have not been initialized, enable edit mode
         if(sharedPreferencesHelper.uninitializedSettings()) {
             showDefaultHints();
             enableEditMode();
@@ -54,6 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
+        // Inflate toolbar menu
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -61,26 +70,36 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.action_edit) {
+            // Enable edit mode when 'edit' selected in toolbar
             enableEditMode();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    protected void setupUI() {
-
+    /*
+    Methods to setup layout elements
+    */
+    private void setupToolbar() {
         toolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+    }
+    private void setupTextFields() {
         counter1Name = findViewById(R.id.counter1edittext);
         counter2Name = findViewById(R.id.counter2edittext);
         counter3Name = findViewById(R.id.counter3edittext);
         maxCounts = findViewById(R.id.maxcountedittxt);
-
+    }
+    private void setupSaveBtn() {
         saveBtn = findViewById(R.id.save_btn);
         saveBtn.setOnClickListener(onClickSaveBtn);
     }
 
+    /*
+    Method to define behavior of save button click
+    - Valid settings inputs: Settings are updated
+    - Invalid settings inputs: Toast message is shown
+    */
     private final View.OnClickListener onClickSaveBtn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
