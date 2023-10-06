@@ -177,7 +177,9 @@ public class SettingsActivity extends AppCompatActivity {
         return counter1Name.getText().length() != 0 &&
                 counter2Name.getText().length() != 0 &&
                 counter3Name.getText().length() != 0 &&
-                maxCounts.getText().length() != 0;
+                maxCounts.getText().length() != 0 &&
+                Integer.parseInt(maxCounts.getText().toString()) >= 5 &&
+                Integer.parseInt(maxCounts.getText().toString()) <= 200;
     }
 
     /*
@@ -185,7 +187,7 @@ public class SettingsActivity extends AppCompatActivity {
     */
     public void showToast() {
         // Toast message
-        String message = "You must fill all text fields. Please try again";
+        String message = "You must fill all text fields with valid values. Please try again";
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(SettingsActivity.this, message, duration);
         toast.show();
