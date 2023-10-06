@@ -16,5 +16,6 @@
     <string name="maxcount">maxCount</string>
     <string name="action_edit">Edit</string>
     <string name="settings_activity">Settings Activity</string>
+    <string name="totalcount">Total Count: </string>
     <string name="totalcountinitial">Total Count: 0</string>
 </resources>
