@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     // For debugging
     private final static String TAG = "MainActivity";
 
-    //To manage settings
+    // To manage settings
     private SharedPreferencesHelper sharedPreferencesHelper;
 
     // Layout elements
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     private final View.OnClickListener onClickShowMyCountsBtn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            // Go to DataActivity
+            goToData();
         }
     };
 
@@ -149,6 +149,14 @@ public class MainActivity extends AppCompatActivity {
     public void goToSettings() {
         Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivity(settings);
+    }
+
+    /*
+    Method to go to data
+    */
+    public void goToData() {
+        Intent data = new Intent(getApplicationContext(), DataActivity.class);
+        startActivity(data);
     }
 
     /*

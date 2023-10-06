@@ -25,7 +25,9 @@
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".DataActivity"
-            android:exported="false">
+            android:label="@string/data_activity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
         </activity>
 
     </application>
