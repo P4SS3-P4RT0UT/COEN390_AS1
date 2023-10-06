@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 
 public class SharedPreferencesHelper {
 
-    protected final static String TAG = "SharedPreferencesHelpers";
+    protected final static String TAG = "SharedPreferencesHelper";
 
-    private SharedPreferences sharedPreferences;
+    private static SharedPreferences sharedPreferences;
 
     public SharedPreferencesHelper(Context context) {
         sharedPreferences = context.getSharedPreferences("Settings",
@@ -25,10 +25,7 @@ public class SharedPreferencesHelper {
 
     public void resetSettings() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("counter1Name");
-        editor.remove("counter2Name");
-        editor.remove("counter3name");
-        editor.remove("maxCounts");
+        editor.clear();
         editor.commit();
     }
 
@@ -38,5 +35,17 @@ public class SharedPreferencesHelper {
         String counter3Name = sharedPreferences.getString("counter3Name", null);
         int maxCounts = sharedPreferences.getInt("maxCounts", -1);
         return new Settings(counter1Name, counter2Name, counter3Name, maxCounts);
+    }
+
+    /*
+    Indicates whether settings have been initialized
+     */
+    public boolean uninitializedSettings(){
+        Settings currentSettings = getSettings();
+        if (currentSettings.getCounter1Name() == null ||
+                currentSettings.getCounter2Name() == null ||
+                currentSettings.getCounter3Name() == null ||
+                currentSettings.getMaxCounts() == -1) return true;
+        else return false;
     }
 }

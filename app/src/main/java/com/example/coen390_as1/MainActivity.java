@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        String counter1Name = sharedPreferencesHelper.getSettings().getCounter1Name();
-        if(counter1Name == null) goToSettings();
+        //String counter1Name = sharedPreferencesHelper.getSettings().getCounter1Name();
+        //if(counter1Name == null) goToSettings();
+        if(sharedPreferencesHelper.uninitializedSettings()) goToSettings();
     }
 
     @Override
