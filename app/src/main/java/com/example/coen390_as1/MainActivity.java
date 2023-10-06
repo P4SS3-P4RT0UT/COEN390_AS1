@@ -1,14 +1,12 @@
 
 package com.example.coen390_as1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
     private Button showMyCountsBtn;
 
     // Counters
-    protected static int counter1 = 0;
-    protected static int counter2 = 0;
-    protected static int counter3 = 0;
+    private static int counter1 = 0;
+    private static int counter2 = 0;
+    private static int counter3 = 0;
 
-    // Array of events
-    String events[];
+    // File to write events to
+    private static final String FILE_PATH ="./main_activity_events.csv";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         // Get current counter names for buttons
         updateCounterBtnName();
+        // Get current counter value
+        updateCounter();
     }
 
     /*
@@ -163,10 +163,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-    Method to get the total number of counts
+    Methods to get the total and individual number of counts
     */
-    public int getCounts() {
+    public static int getCounts() {
         return counter1 + counter2 + counter3;
+    }
+    public static int getCounter1() {
+        return counter1;
+    }
+    public static int getCounter2() {
+        return counter2;
+    }
+    public static int getCounter3() {
+        return counter3;
     }
 
     /*
@@ -174,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     */
     public void updateCounter() {
         String count = String.valueOf(getCounts());
-        String displayText = getString(R.string.totalcount) + count;
+        String displayText = getString(R.string.total_count) + count;
         counts.setText(displayText);
     }
 
@@ -184,5 +193,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean belowMaxCounts(){
         int maxCounts = sharedPreferencesHelper.getSettings().getMaxCounts();
         return getCounts() < maxCounts;
+    }
+
+    public void writeToFile() {
+
     }
 }
