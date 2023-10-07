@@ -79,31 +79,9 @@ public class DataActivity extends AppCompatActivity {
     Default is disabled (event name mode)
      */
     private void enableButtonNumberMode() {
-        String counter1 = String.valueOf(MainActivity.getCounter1());
-        String counter1event = getString(R.string.counter_1) + counter1 + getString(R.string.events_txt);
-        counter1Events.setText(counter1event);
-        String counter2 = String.valueOf(MainActivity.getCounter2());
-        String counter2event = getString(R.string.counter_2) + counter2 + getString(R.string.events_txt);
-        counter2Events.setText(counter2event);
-        String counter3 = String.valueOf(MainActivity.getCounter3());
-        String counter3event = getString(R.string.counter_3) + counter3 + getString(R.string.events_txt);
-        counter3Events.setText(counter3event);
-        String totalCounts = String.valueOf(MainActivity.getCounts());
-        String totalCountEvents = getString(R.string.total_events_txt) + totalCounts + getString(R.string.events_txt);
-        totalEvents.setText(totalCountEvents);
+
     }
     private void disableButtonNumberMode() {
-        String counter1 = String.valueOf(MainActivity.getCounter1());
-        String counter1event = sharedPreferencesHelper.getSettings().getCounter1Name() + ": " + counter1 + getString(R.string.events_txt);
-        counter1Events.setText(counter1event);
-        String counter2 = String.valueOf(MainActivity.getCounter2());
-        String counter2event = sharedPreferencesHelper.getSettings().getCounter2Name() + ": " + counter2 + getString(R.string.events_txt);
-        counter2Events.setText(counter2event);
-        String counter3 = String.valueOf(MainActivity.getCounter3());
-        String counter3event = sharedPreferencesHelper.getSettings().getCounter3Name() + ": " + counter3 + getString(R.string.events_txt);
-        counter3Events.setText(counter3event);
-        String totalCounts = String.valueOf(MainActivity.getCounts());
-        String totalCountEvents = getString(R.string.total_events_txt) + totalCounts + getString(R.string.events_txt);
-        totalEvents.setText(totalCountEvents);
+
     }
 }
