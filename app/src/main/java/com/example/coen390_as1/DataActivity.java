@@ -3,6 +3,7 @@ package com.example.coen390_as1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -24,18 +25,18 @@ public class DataActivity extends AppCompatActivity {
     private TextView counter2Events;
     private TextView counter3Events;
     private TextView totalEvents;
-    private RecyclerView eventList;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
+        // Instantiate helper
+        sharedPreferencesHelper = new SharedPreferencesHelper(DataActivity.this);
         // Setup layout elements
         setupToolbar();
         setupTextViews();
         setupRecyclerView();
-        // Instantiate helper
-        sharedPreferencesHelper = new SharedPreferencesHelper(DataActivity.this);
         disableButtonNumberMode();
     }
 
@@ -70,8 +71,10 @@ public class DataActivity extends AppCompatActivity {
         totalEvents = findViewById(R.id.total_events);
     }
     private void setupRecyclerView() {
-        eventList = findViewById(R.id.event_list);
-        //eventList.setAdapter(customAdapter);
+        CustomAdapter customAdapter = new CustomAdapter(sharedPreferencesHelper.getEventList().split(","));
+        recyclerView = findViewById(R.id.event_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(customAdapter);
     }
 
     /*
@@ -96,6 +99,7 @@ public class DataActivity extends AppCompatActivity {
         String totalEventsTxt = getString(R.string.total_events_txt);
         int totalCounts = sharedPreferencesHelper.getTotalCount();
         totalEvents.setText(totalEventsTxt + totalCounts + events);
+        // Event names
     }
     private void disableButtonNumberMode() {
         String events = getString(R.string.events_txt);

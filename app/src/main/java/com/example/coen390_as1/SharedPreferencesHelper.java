@@ -1,7 +1,7 @@
 package com.example.coen390_as1;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.SharedPreferences;;
 
 public class SharedPreferencesHelper {
 
@@ -14,6 +14,7 @@ public class SharedPreferencesHelper {
     public SharedPreferencesHelper(Context context) {
         sharedPreferences = context.getSharedPreferences("Settings",
                 Context.MODE_PRIVATE );
+
     }
 
     /*
@@ -30,6 +31,17 @@ public class SharedPreferencesHelper {
         // Max counts
         editor.putInt("maxCounts", settings.getMaxCounts());
         // Commit changes
+        editor.commit();
+    }
+
+    /*
+    Method to add events to the list of events
+    */
+    public void addEvent(String counterName) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // Save the counter name and append it to the existing event list
+        // Add a comma at the end to separate the values
+        editor.putString("eventList", getEventList() + counterName + ",");
         editor.commit();
     }
 
@@ -81,6 +93,13 @@ public class SharedPreferencesHelper {
     */
     public int getCounterValue(String counterValueKey) {
         return sharedPreferences.getInt(counterValueKey, 0);
+    }
+
+    /*
+    Method to get the event list as a CSV string
+    */
+    public String getEventList() {
+        return sharedPreferences.getString("eventList", "");
     }
 
     /*
