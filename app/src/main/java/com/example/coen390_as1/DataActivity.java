@@ -79,9 +79,41 @@ public class DataActivity extends AppCompatActivity {
     Default is disabled (event name mode)
      */
     private void enableButtonNumberMode() {
-
+        String events = getString(R.string.events_txt);
+        // Counter 1 name and value
+        String counter1Name = getString(R.string.counter_1);
+        int counter1Value = sharedPreferencesHelper.getCounterValue(getString(R.string.counter_1_value));
+        counter1Events.setText(counter1Name + counter1Value + events);
+        // Counter 2 name and value
+        String counter2Name = getString(R.string.counter_2);
+        int counter2Value = sharedPreferencesHelper.getCounterValue(getString(R.string.counter_2_value));
+        counter2Events.setText(counter2Name + counter2Value + events);
+        // Counter 3 name and value
+        String counter3Name = getString(R.string.counter_3);
+        int counter3Value = sharedPreferencesHelper.getCounterValue(getString(R.string.counter_3_value));
+        counter3Events.setText(counter3Name + counter3Value + events);
+        // Total counts
+        String totalEventsTxt = getString(R.string.total_events_txt);
+        int totalCounts = sharedPreferencesHelper.getTotalCount();
+        totalEvents.setText(totalEventsTxt + totalCounts + events);
     }
     private void disableButtonNumberMode() {
-
+        String events = getString(R.string.events_txt);
+        // Counter 1 name and value
+        String counter1Name = sharedPreferencesHelper.getSettings().getCounter1Name();
+        int counter1Value = sharedPreferencesHelper.getCounterValue(getString(R.string.counter_1_value));
+        counter1Events.setText(counter1Name + ": " + counter1Value + events);
+        // Counter 2 name and value
+        String counter2Name = sharedPreferencesHelper.getSettings().getCounter2Name();
+        int counter2Value = sharedPreferencesHelper.getCounterValue(getString(R.string.counter_2_value));
+        counter2Events.setText(counter2Name + ": " + counter2Value + events);
+        // Counter 3 name and value
+        String counter3Name = sharedPreferencesHelper.getSettings().getCounter3Name();
+        int counter3Value = sharedPreferencesHelper.getCounterValue(getString(R.string.counter_3_value));
+        counter3Events.setText(counter3Name + ": " + counter3Value + events);
+        // Total counts
+        String totalEventsTxt = getString(R.string.total_events_txt);
+        int totalCounts = sharedPreferencesHelper.getTotalCount();
+        totalEvents.setText(totalEventsTxt + ": " + totalCounts + events);
     }
 }

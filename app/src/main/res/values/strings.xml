@@ -24,4 +24,7 @@
     <string name="counter_2">"Counter 2: "</string>
     <string name="counter_3">"Counter 3: "</string>
     <string name="events_txt">" events"</string>
+    <string name="counter_1_value">counter1Value</string>
+    <string name="counter_2_value">counter2Value</string>
+    <string name="counter_3_value">counter3Value</string>
 </resources>

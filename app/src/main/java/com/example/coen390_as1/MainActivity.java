@@ -100,21 +100,21 @@ public class MainActivity extends AppCompatActivity {
     private final View.OnClickListener onClickCounter1Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            sharedPreferencesHelper.updateCounter("counter1Value");
+            sharedPreferencesHelper.updateCounter(getString(R.string.counter_1_value));
             updateDisplayCounter();
         }
     };
     private final View.OnClickListener onClickCounter2Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            sharedPreferencesHelper.updateCounter("counter2Value");
+            sharedPreferencesHelper.updateCounter(getString(R.string.counter_2_value));
             updateDisplayCounter();
         }
     };
     private final View.OnClickListener onClickCounter3Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            sharedPreferencesHelper.updateCounter("counter3Value");
+            sharedPreferencesHelper.updateCounter(getString(R.string.counter_3_value));
             updateDisplayCounter();
         }
     };
