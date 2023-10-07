@@ -83,7 +83,7 @@ public class SharedPreferencesHelper {
         String counter1Name = sharedPreferences.getString("counter1Name", "");
         String counter2Name = sharedPreferences.getString("counter2Name", "");
         String counter3Name = sharedPreferences.getString("counter3Name", "");
-        int maxCounts = sharedPreferences.getInt("maxCounts", -1);
+        int maxCounts = sharedPreferences.getInt("maxCounts", 0);
         // Return a settings object initialized with settings information
         return new Settings(counter1Name, counter2Name, counter3Name, maxCounts);
     }

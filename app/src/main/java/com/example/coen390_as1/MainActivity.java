@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
     Method to update the display counter
     */
     public void updateDisplayCounter() {
-        String displayText = getString(R.string.total_count) + sharedPreferencesHelper.getTotalCount();
-        counts.setText(displayText);
+        counts.setText(getString(R.string.total_count, sharedPreferencesHelper.getTotalCount()));
     }
 }
