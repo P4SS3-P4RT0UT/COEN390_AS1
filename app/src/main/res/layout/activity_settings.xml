@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
@@ -16,9 +16,10 @@
         android:layout_gravity="start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:text="@string/counter_1_name_txt"
-        />
+        android:textSize="24sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"/>
 
     <EditText
         android:id="@+id/counter1edittext"
@@ -30,6 +31,8 @@
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:maxLength="20"
         android:minHeight="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:textColorHint="#8D6E63"
         tools:ignore="Autofill" />
 
@@ -40,7 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/counter_2_name_txt"
-        />
+        android:textSize="24sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"/>
 
     <EditText
         android:id="@+id/counter2edittext"
@@ -53,7 +58,9 @@
         android:maxLength="20"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
 
     <TextView
         android:id="@+id/counter3name"
@@ -62,7 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/counter_3_name_txt"
-        />
+        android:textSize="24sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"/>
 
     <EditText
         android:id="@+id/counter3edittext"
@@ -75,7 +84,9 @@
         android:maxLength="20"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
 
     <TextView
         android:id="@+id/maxcount"
@@ -84,7 +95,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/max_count_txt"
-        />
+        android:textSize="24sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"/>
 
     <EditText
         android:id="@+id/maxcountedittxt"
@@ -95,14 +108,17 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
 
     <Button
         android:id="@+id/save_btn"
         android:layout_gravity="center"
         android:text="@string/save_txt"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:layout_height="wrap_content"/>
+        app:cornerRadius="0dp"/>
 
 </LinearLayout>

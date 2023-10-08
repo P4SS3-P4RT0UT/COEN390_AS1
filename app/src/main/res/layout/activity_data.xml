@@ -13,26 +13,40 @@
     <TextView
         android:id="@+id/counter_1_events"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/counter_1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/counter_2_events"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/counter_2"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/counter_3_events"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/counter_3"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/total_events"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/total_events"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
 
 </LinearLayout>
