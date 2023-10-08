@@ -25,4 +25,7 @@
     <string name="counter_1_value">counter1Value</string>
     <string name="counter_2_value">counter2Value</string>
     <string name="counter_3_value">counter3Value</string>
+    <string name="counter_1_name">counter1Name</string>
+    <string name="counter_2_name">counter2Name</string>
+    <string name="counter_3_name">counter3Name</string>
 </resources>

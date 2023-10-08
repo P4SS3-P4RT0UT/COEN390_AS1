@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v){
             sharedPreferencesHelper.updateCounter(getString(R.string.counter_1_value));
-            sharedPreferencesHelper.addEvent(sharedPreferencesHelper.getSettings().getCounter1Name());
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_1_name));
             updateDisplayCounter();
         }
     };
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v){
             sharedPreferencesHelper.updateCounter(getString(R.string.counter_2_value));
-            sharedPreferencesHelper.addEvent(sharedPreferencesHelper.getSettings().getCounter2Name());
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_2_name));
             updateDisplayCounter();
         }
     };
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v){
             sharedPreferencesHelper.updateCounter(getString(R.string.counter_3_value));
-            sharedPreferencesHelper.addEvent(sharedPreferencesHelper.getSettings().getCounter3Name());
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_3_name));
             updateDisplayCounter();
         }
     };

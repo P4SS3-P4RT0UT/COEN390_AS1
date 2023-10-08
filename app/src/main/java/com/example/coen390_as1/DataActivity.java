@@ -82,11 +82,17 @@ public class DataActivity extends AppCompatActivity {
     }
     private void setupRecyclerView() {
         // Create a custom adapter for list view
-        CustomAdapter customAdapter = new CustomAdapter(sharedPreferencesHelper.getEventList().split(","));
+        String defaultCounterNames = sharedPreferencesHelper.getEventList().
+                replaceAll(getString(R.string.counter_1_name), sharedPreferencesHelper.getSettings().getCounter1Name()).
+                replaceAll(getString(R.string.counter_2_name), sharedPreferencesHelper.getSettings().getCounter2Name()).
+                replaceAll(getString(R.string.counter_3_name), sharedPreferencesHelper.getSettings().getCounter3Name());
+        CustomAdapter customAdapter = new CustomAdapter(defaultCounterNames.split(","));
         recyclerView = findViewById(R.id.event_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //
         recyclerView.setAdapter(customAdapter);
+
+
     }
 
     /*
@@ -116,9 +122,9 @@ public class DataActivity extends AppCompatActivity {
         totalEvents.setText(getString(R.string.total_events, sharedPreferencesHelper.getTotalCount()));
         // Change the user-defined counter names in the event list to 1, 2 and 3
         String buttonNumberString = sharedPreferencesHelper.getEventList().
-                replaceAll(sharedPreferencesHelper.getSettings().getCounter1Name(),"1").
-                replaceAll(sharedPreferencesHelper.getSettings().getCounter2Name(),"2").
-                replaceAll(sharedPreferencesHelper.getSettings().getCounter3Name(),"3");
+                replaceAll(getString(R.string.counter_1_name), "1").
+                replaceAll(getString(R.string.counter_2_name), "2").
+                replaceAll(getString(R.string.counter_3_name), "3");
         CustomAdapter customAdapter = new CustomAdapter(buttonNumberString.split(","));
         recyclerView.swapAdapter(customAdapter, true);
     }
@@ -145,7 +151,11 @@ public class DataActivity extends AppCompatActivity {
         // Display the total number of events (no change in view)
         totalEvents.setText(getString(R.string.total_events, sharedPreferencesHelper.getTotalCount()));
         // Change the number counter names in the event list to user-defined names
-        CustomAdapter customAdapter = new CustomAdapter(sharedPreferencesHelper.getEventList().split(","));
+        String defaultCounterNames = sharedPreferencesHelper.getEventList().
+                replaceAll(getString(R.string.counter_1_name), sharedPreferencesHelper.getSettings().getCounter1Name()).
+                replaceAll(getString(R.string.counter_2_name), sharedPreferencesHelper.getSettings().getCounter2Name()).
+                replaceAll(getString(R.string.counter_3_name), sharedPreferencesHelper.getSettings().getCounter3Name());
+        CustomAdapter customAdapter = new CustomAdapter(defaultCounterNames.split(","));
         recyclerView.swapAdapter(customAdapter, true);
     }
 }
