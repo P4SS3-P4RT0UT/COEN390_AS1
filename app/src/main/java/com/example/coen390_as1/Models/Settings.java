@@ -1,4 +1,4 @@
-package com.example.coen390_as1;
+package com.example.coen390_as1.Models;
 
 public class Settings {
 

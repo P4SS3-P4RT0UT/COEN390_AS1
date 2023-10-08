@@ -1,10 +1,9 @@
-package com.example.coen390_as1;
+package com.example.coen390_as1.Views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.coen390_as1.R;
+import com.example.coen390_as1.Models.Settings;
+import com.example.coen390_as1.Controllers.SharedPreferencesHelper;
+
+import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -81,7 +86,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void setupToolbar() {
         toolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
     private void setupTextFields() {
         counter1Name = findViewById(R.id.counter1edittext);
@@ -110,14 +115,6 @@ public class SettingsActivity extends AppCompatActivity {
                 }
         }
     };
-
-    /*
-    Method to go back to main activity
-    */
-    public void goToMain() {
-        Intent main = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(main);
-    }
 
     /*
     Method to update settings
