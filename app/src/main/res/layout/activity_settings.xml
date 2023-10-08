@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/counter1nametxt"
+        android:text="@string/counter_1_name_txt"
         />
 
     <EditText
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:hint="@string/writenamehere"
+        android:hint="@string/write_name_here"
         android:inputType="text"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:maxLength="20"
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/counter2nametxt"
+        android:text="@string/counter_2_name_txt"
         />
 
     <EditText
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:hint="@string/writenamehere"
+        android:hint="@string/write_name_here"
         android:inputType="text"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:maxLength="20"
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/counter3nametxt"
+        android:text="@string/counter_3_name_txt"
         />
 
     <EditText
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:hint="@string/writenamehere"
+        android:hint="@string/write_name_here"
         android:inputType="text"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
         android:maxLength="20"
@@ -83,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="@string/maxcount_txt"
+        android:text="@string/max_count_txt"
         />
 
     <EditText
@@ -91,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:hint="@string/writemaxcounthere"
+        android:hint="@string/write_max_count_here"
         android:inputType="number"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"

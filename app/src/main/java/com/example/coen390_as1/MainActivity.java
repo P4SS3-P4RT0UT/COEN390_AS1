@@ -1,14 +1,12 @@
 
 package com.example.coen390_as1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private Button counter3Btn;
     private TextView counts;
     private Button showMyCountsBtn;
-
-    // Counters
-    protected static int counter1 = 0;
-    protected static int counter2 = 0;
-    protected static int counter3 = 0;
-
-    // Array of events
-    String events[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         // If settings have not been initialized, go directly to SettingsActivity
-        if(sharedPreferencesHelper.uninitializedSettings())
+        if(sharedPreferencesHelper.uninitializedSettings()) {
             goToSettings();
+        }
     }
 
     @Override
@@ -60,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         // Get current counter names for buttons
         updateCounterBtnName();
+        // Get current counter value
+        updateDisplayCounter();
     }
 
     /*
@@ -107,22 +100,25 @@ public class MainActivity extends AppCompatActivity {
     private final View.OnClickListener onClickCounter1Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            if(belowMaxCounts()) counter1++;
-            updateCounter();
+            sharedPreferencesHelper.updateCounter(getString(R.string.counter_1_value));
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_1_name));
+            updateDisplayCounter();
         }
     };
     private final View.OnClickListener onClickCounter2Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            if(belowMaxCounts()) counter2++;
-            updateCounter();
+            sharedPreferencesHelper.updateCounter(getString(R.string.counter_2_value));
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_2_name));
+            updateDisplayCounter();
         }
     };
     private final View.OnClickListener onClickCounter3Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            if(belowMaxCounts()) counter3++;
-            updateCounter();
+            sharedPreferencesHelper.updateCounter(getString(R.string.counter_3_value));
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_3_name));
+            updateDisplayCounter();
         }
     };
 
@@ -163,26 +159,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-    Method to get the total number of counts
-    */
-    public int getCounts() {
-        return counter1 + counter2 + counter3;
-    }
-
-    /*
     Method to update the display counter
     */
-    public void updateCounter() {
-        String count = String.valueOf(getCounts());
-        String displayText = getString(R.string.totalcount) + count;
-        counts.setText(displayText);
-    }
-
-    /*
-    Method to check if the total count is below the maximal value
-    */
-    public boolean belowMaxCounts(){
-        int maxCounts = sharedPreferencesHelper.getSettings().getMaxCounts();
-        return getCounts() < maxCounts;
+    public void updateDisplayCounter() {
+        counts.setText(getString(R.string.total_count, sharedPreferencesHelper.getTotalCount()));
     }
 }

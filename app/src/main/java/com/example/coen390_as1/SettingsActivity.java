@@ -134,10 +134,10 @@ public class SettingsActivity extends AppCompatActivity {
     Method to show default hints in text fields
      */
     public void showDefaultHints() {
-        counter1Name.setHint(getString(R.string.writenamehere));
-        counter2Name.setHint(getString(R.string.writenamehere));
-        counter3Name.setHint(getString(R.string.writenamehere));
-        maxCounts.setHint(getString(R.string.writemaxcounthere));
+        counter1Name.setHint(getString(R.string.write_name_here));
+        counter2Name.setHint(getString(R.string.write_name_here));
+        counter3Name.setHint(getString(R.string.write_name_here));
+        maxCounts.setHint(getString(R.string.write_max_count_here));
     }
 
     /*

@@ -20,21 +20,21 @@
     <Button
         android:id="@+id/counter1_btn"
         android:layout_gravity="center"
-        android:text="@string/placeholder_txt"
+        android:text="@string/counter_1_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/counter2_btn"
         android:layout_gravity="center"
-        android:text="@string/placeholder_txt"
+        android:text="@string/counter_2_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/counter3_btn"
         android:layout_gravity="center"
-        android:text="@string/placeholder_txt"
+        android:text="@string/counter_3_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -45,12 +45,12 @@
         android:layout_marginBottom="75dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/totalcountinitial"
+        android:text="@string/total_count"
         />
     <Button
         android:id="@+id/showmycounts_btn"
         android:layout_gravity="center"
-        android:text="@string/showmycounts_txt"
+        android:text="@string/show_my_counts_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
