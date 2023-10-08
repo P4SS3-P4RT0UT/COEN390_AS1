@@ -7,10 +7,12 @@
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
+    <!-- Toolbar -->
     <include
         android:id="@+id/settings_toolbar"
         layout="@layout/toolbar"/>
 
+    <!-- Counter 1 name -->
     <TextView
         android:id="@+id/counter1name"
         android:layout_gravity="start"
@@ -21,6 +23,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"/>
 
+    <!-- Counter 1 edit text -->
     <EditText
         android:id="@+id/counter1edittext"
         android:layout_width="match_parent"
@@ -36,6 +39,7 @@
         android:textColorHint="#8D6E63"
         tools:ignore="Autofill" />
 
+    <!-- Counter 2 name -->
     <TextView
         android:id="@+id/counter2name"
         android:layout_gravity="start"
@@ -47,6 +51,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"/>
 
+    <!-- Counter 2 edit text -->
     <EditText
         android:id="@+id/counter2edittext"
         android:layout_width="match_parent"
@@ -62,6 +67,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
+    <!-- Counter 3 name -->
     <TextView
         android:id="@+id/counter3name"
         android:layout_gravity="start"
@@ -73,6 +79,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"/>
 
+    <!-- Counter 3 edit text -->
     <EditText
         android:id="@+id/counter3edittext"
         android:layout_width="match_parent"
@@ -88,6 +95,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
+    <!-- Maximum counts -->
     <TextView
         android:id="@+id/maxcount"
         android:layout_gravity="start"
@@ -99,6 +107,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"/>
 
+    <!-- Maximum counts edit text -->
     <EditText
         android:id="@+id/maxcountedittxt"
         android:layout_width="match_parent"
@@ -112,6 +121,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
+    <!-- Save button -->
     <Button
         android:id="@+id/save_btn"
         android:layout_gravity="center"

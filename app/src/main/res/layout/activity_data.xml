@@ -6,10 +6,12 @@
     android:orientation="vertical"
     tools:context=".DataActivity">
 
+    <!-- Toolbar -->
     <include
         android:id="@+id/data_toolbar"
         layout="@layout/toolbar"/>
 
+    <!-- Events for counter 1 -->
     <TextView
         android:id="@+id/counter_1_events"
         android:layout_width="match_parent"
@@ -19,6 +21,7 @@
         android:layout_marginTop="10dp"
         android:textSize="18sp"/>
 
+    <!-- Events for counter 2 -->
     <TextView
         android:id="@+id/counter_2_events"
         android:layout_width="match_parent"
@@ -28,6 +31,7 @@
         android:layout_marginTop="5dp"
         android:textSize="18sp"/>
 
+    <!-- Events for counter 3 -->
     <TextView
         android:id="@+id/counter_3_events"
         android:layout_width="match_parent"
@@ -37,6 +41,7 @@
         android:layout_marginTop="5dp"
         android:textSize="18sp"/>
 
+    <!-- Total events -->
     <TextView
         android:id="@+id/total_events"
         android:layout_width="match_parent"
@@ -46,11 +51,12 @@
         android:layout_marginTop="10dp"
         android:textSize="18sp"/>
 
+    <!-- List of events -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"/>
 
 </LinearLayout>
