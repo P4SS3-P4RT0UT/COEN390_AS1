@@ -1,7 +1,7 @@
-package com.example.coen390_as1;
+package com.example.coen390_as1.Controllers;
 
 import android.content.Context;
-import android.content.SharedPreferences;;
+import android.content.SharedPreferences;import com.example.coen390_as1.Models.Settings;
 
 public class SharedPreferencesHelper {
 
@@ -37,20 +37,21 @@ public class SharedPreferencesHelper {
     /*
     Method to add events to the list of events
     */
-    public void addEvent(String counterName) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    public void addEvent(String counterName, String counterValueKey) {
         // Save the counter name and append it to the existing event list
         // Add a comma at the end to separate the values
-        editor.putString("eventList", getEventList() + counterName + ",");
-        editor.commit();
+        if(getTotalCount() < getSettings().getMaxCounts()){
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("eventList", getEventList() + counterName + ",");
+            updateCounter(counterValueKey);
+            editor.commit();
+        }
     }
 
     /*
     Method to update counter
     */
     public void updateCounter(String counterValueKey) {
-        // Check that limit of counts is not reached
-        if(getTotalCount() < getSettings().getMaxCounts()) {
             // Editor of SharedPreferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             // Increment the counter value
@@ -60,7 +61,6 @@ public class SharedPreferencesHelper {
             editor.putInt(counterValueKey, counterValue);
             // Commit changes
             editor.commit();
-        }
     }
 
     /*

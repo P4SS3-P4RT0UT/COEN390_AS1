@@ -1,9 +1,8 @@
-package com.example.coen390_as1;
+package com.example.coen390_as1.Views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +10,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.example.coen390_as1.R;
+import com.example.coen390_as1.Controllers.SharedPreferencesHelper;
+
+import java.util.Objects;
 
 public class DataActivity extends AppCompatActivity {
 
@@ -75,7 +79,7 @@ public class DataActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.data_toolbar);
         setSupportActionBar(toolbar);
         // To navigate back to main activity
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
     private void setupTextViews() {
         counter1Events = findViewById(R.id.counter_1_events);

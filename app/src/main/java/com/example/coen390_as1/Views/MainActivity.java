@@ -1,5 +1,5 @@
 
-package com.example.coen390_as1;
+package com.example.coen390_as1.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coen390_as1.R;
+import com.example.coen390_as1.Controllers.SharedPreferencesHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -100,24 +103,21 @@ public class MainActivity extends AppCompatActivity {
     private final View.OnClickListener onClickCounter1Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            sharedPreferencesHelper.updateCounter(getString(R.string.counter_1_value));
-            sharedPreferencesHelper.addEvent(getString(R.string.counter_1_name));
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_1_name), getString(R.string.counter_1_value));
             updateDisplayCounter();
         }
     };
     private final View.OnClickListener onClickCounter2Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            sharedPreferencesHelper.updateCounter(getString(R.string.counter_2_value));
-            sharedPreferencesHelper.addEvent(getString(R.string.counter_2_name));
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_2_name), getString(R.string.counter_2_value));
             updateDisplayCounter();
         }
     };
     private final View.OnClickListener onClickCounter3Btn = new View.OnClickListener(){
         @Override
         public void onClick(View v){
-            sharedPreferencesHelper.updateCounter(getString(R.string.counter_3_value));
-            sharedPreferencesHelper.addEvent(getString(R.string.counter_3_name));
+            sharedPreferencesHelper.addEvent(getString(R.string.counter_3_name), getString(R.string.counter_3_value));
             updateDisplayCounter();
         }
     };
