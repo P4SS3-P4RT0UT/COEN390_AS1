@@ -21,8 +21,8 @@ public class DataActivity extends AppCompatActivity {
 
     // To keep track of mode
     // Default mode: Event name mode
-    // Second mode: Button number mode
-    private Boolean buttonNumberModeEnabled;
+    // Other mode: Button number mode
+    private Boolean buttonNumberModeEnabled = false;
 
     // Layout elements
     private Toolbar toolbar;
@@ -42,7 +42,9 @@ public class DataActivity extends AppCompatActivity {
         setupToolbar();
         setupTextViews();
         setupRecyclerView();
+        // Define default mode
         disableButtonNumberMode();
+
     }
 
     @Override
@@ -82,17 +84,10 @@ public class DataActivity extends AppCompatActivity {
     }
     private void setupRecyclerView() {
         // Create a custom adapter for list view
-        String defaultCounterNames = sharedPreferencesHelper.getEventList().
-                replaceAll(getString(R.string.counter_1_name), sharedPreferencesHelper.getSettings().getCounter1Name()).
-                replaceAll(getString(R.string.counter_2_name), sharedPreferencesHelper.getSettings().getCounter2Name()).
-                replaceAll(getString(R.string.counter_3_name), sharedPreferencesHelper.getSettings().getCounter3Name());
-        CustomAdapter customAdapter = new CustomAdapter(defaultCounterNames.split(","));
         recyclerView = findViewById(R.id.event_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //
-        recyclerView.setAdapter(customAdapter);
-
-
+        recyclerView.setAdapter(getNewAdapter());
     }
 
     /*
@@ -121,12 +116,7 @@ public class DataActivity extends AppCompatActivity {
         // Display the total number of events (no change in view)
         totalEvents.setText(getString(R.string.total_events, sharedPreferencesHelper.getTotalCount()));
         // Change the user-defined counter names in the event list to 1, 2 and 3
-        String buttonNumberString = sharedPreferencesHelper.getEventList().
-                replaceAll(getString(R.string.counter_1_name), "1").
-                replaceAll(getString(R.string.counter_2_name), "2").
-                replaceAll(getString(R.string.counter_3_name), "3");
-        CustomAdapter customAdapter = new CustomAdapter(buttonNumberString.split(","));
-        recyclerView.swapAdapter(customAdapter, true);
+        recyclerView.swapAdapter(getNewAdapter(), true);
     }
     private void disableButtonNumberMode() {
         // Set button number mode as disabled
@@ -151,11 +141,33 @@ public class DataActivity extends AppCompatActivity {
         // Display the total number of events (no change in view)
         totalEvents.setText(getString(R.string.total_events, sharedPreferencesHelper.getTotalCount()));
         // Change the number counter names in the event list to user-defined names
-        String defaultCounterNames = sharedPreferencesHelper.getEventList().
-                replaceAll(getString(R.string.counter_1_name), sharedPreferencesHelper.getSettings().getCounter1Name()).
-                replaceAll(getString(R.string.counter_2_name), sharedPreferencesHelper.getSettings().getCounter2Name()).
-                replaceAll(getString(R.string.counter_3_name), sharedPreferencesHelper.getSettings().getCounter3Name());
-        CustomAdapter customAdapter = new CustomAdapter(defaultCounterNames.split(","));
-        recyclerView.swapAdapter(customAdapter, true);
+        recyclerView.swapAdapter(getNewAdapter(), true);
+    }
+
+    /*
+    Methods to update the Recycler data
+    Default mode: show user-defined counter names
+    Other mode: show counter number
+    */
+    private CustomAdapter getNewAdapter() {
+        // Get the list of events (contains list of counter name keys)
+        String counterKeysList = sharedPreferencesHelper.getEventList();
+        // Replace all keys by their counter number equivalent
+        if(buttonNumberModeEnabled) {
+            String numberList = counterKeysList.
+                    replaceAll(getString(R.string.counter_1_name), "1")
+                    .replaceAll(getString(R.string.counter_2_name), "2")
+                    .replaceAll(getString(R.string.counter_3_name), "3");
+            // Return the custom adapter with updated dataset
+            return new CustomAdapter(numberList.split(","));
+        } else {
+            // Replace all keys by their user-defined name
+            String nameList = counterKeysList.
+                    replaceAll(getString(R.string.counter_1_name), sharedPreferencesHelper.getSettings().getCounter1Name())
+                    .replaceAll(getString(R.string.counter_2_name), sharedPreferencesHelper.getSettings().getCounter2Name())
+                    .replaceAll(getString(R.string.counter_3_name), sharedPreferencesHelper.getSettings().getCounter3Name());
+            // Return the custom adapter with updated dataset
+            return new CustomAdapter(nameList.split(","));
+        }
     }
 }
