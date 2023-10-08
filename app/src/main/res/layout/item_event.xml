@@ -8,10 +8,11 @@
     android:paddingBottom="10dp"
     >
 
+    <!-- Event list elements (individual) -->
     <TextView
         android:id="@+id/event_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        />
+        android:textSize="18sp"/>
 </LinearLayout>

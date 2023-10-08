@@ -3,6 +3,7 @@ package com.example.coen390_as1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -86,7 +87,7 @@ public class DataActivity extends AppCompatActivity {
         // Create a custom adapter for list view
         recyclerView = findViewById(R.id.event_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //
+        // Set adapter for initial view
         recyclerView.setAdapter(getNewAdapter());
     }
 
