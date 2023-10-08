@@ -15,7 +15,8 @@
         android:text="@string/settings_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="0dp"/>
+        app:cornerRadius="0dp"
+        android:background="#144557"/>
 
     <Button
         android:id="@+id/counter1_btn"

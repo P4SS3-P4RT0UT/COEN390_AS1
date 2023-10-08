@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:text="@string/counter_1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/counter_2_events"
@@ -24,7 +25,8 @@
         android:layout_height="wrap_content"
         android:text="@string/counter_2"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/counter_3_events"
@@ -32,7 +34,8 @@
         android:layout_height="wrap_content"
         android:text="@string/counter_3"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/total_events"
@@ -40,7 +43,8 @@
         android:layout_height="wrap_content"
         android:text="@string/total_events"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_list"
